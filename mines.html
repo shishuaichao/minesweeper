@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <style>
+        #board {
+            display: grid;
+            gap: 1px;
+            background-color: black;
+            border: 1px solid black;
+            width: 309px;
+            margin: 50px auto;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightgray;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .cell.revealed {
+            background-color: white;
+            cursor: default;
+        }
+        .cell.mine {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+    <script src="minesweeper.js"></script>
+</body>
+</html>

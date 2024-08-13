@@ -54,6 +54,18 @@ function calculateNeighborMines(board) {
   }
 }
 
+function markCell(board, r, c) {
+    if (board[r][c].revealed) {
+        return;
+    }
+    if (document.getElementById(`cell-${r}-${c}`).classList.contains('flag')) {
+        document.getElementById(`cell-${r}-${c}`).classList.remove('flag');
+    } else {
+        document.getElementById(`cell-${r}-${c}`).classList.add('flag');
+        board[r][c].flagged = true
+    }
+}
+
 function revealCell(board, r, c) {
   if (board[r][c].revealed || board[r][c].flagged) {
       return;
@@ -63,7 +75,7 @@ function revealCell(board, r, c) {
 
   if (board[r][c].hasMine) {
       document.getElementById(`cell-${r}-${c}`).classList.add('mine');
-      alert("Game Over!");
+    //   alert("Game Over!");
       return;
   }
 
@@ -106,7 +118,11 @@ function renderBoard(board) {
           const cellElement = document.createElement('div');
           cellElement.id = `cell-${r}-${c}`;
           cellElement.className = 'cell';
-          cellElement.addEventListener('click', () => {
+          cellElement.addEventListener('click', (event) => {
+            if (event.ctrlKey) {
+                markCell(board, r, c);
+                return
+            }
               revealCell(board, r, c);
               if (checkWin(board)) {
                   alert("You Win!");

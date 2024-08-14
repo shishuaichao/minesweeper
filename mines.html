@@ -8,11 +8,12 @@
         #board {
             display: grid;
             gap: 1px;
-            background-color: black;
-            border: 1px solid black;
             width: 309px;
             margin: 50px auto;
             user-select: none;
+            background-color: #c0c0c0;
+            border-right: 2px solid #808080;
+            border-bottom: 2px solid #808080;
         }
         .cell {
             width: 30px;
@@ -20,16 +21,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: lightgray;
+            /* background-color: lightgray; */
             font-size: 20px;
             cursor: pointer;
+            background: url('./images/9.bmp') no-repeat;
+            background-size: 100% 100%;
         }
         .cell.revealed {
-            background-color: white;
-            cursor: default;
+            background: url('./images/0.bmp') no-repeat;
+            background-size: 100% 100%;
         }
         .cell.mine {
-            /* background-color: red; */
             background: url('./images/10.bmp') no-repeat;
             background-size: 100% 100%;
         }
